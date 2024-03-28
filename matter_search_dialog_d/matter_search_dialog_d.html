@@ -1,0 +1,485 @@
+<imart type="imuiValidationRule" rule="ssfa/pages/parts/dialog_parts/search_parts/matter_search_dialog_d/validator/matter_search_dialog_d#conditions" rulesName="ssfaMtrSrchDiag_rules" messagesName="ssfaMtrSrchDiag_messages"></imart>
+<!-- 検索ダイアログ関連js-->
+<script type="text/javascript" src="rsfa/csjs/pages/parts/dialog_parts/search_parts/cstmr_corp_search_dialog_d/cstmr_corp_search_dialog_d.js"></script>
+<script type="text/javascript" src="rsfa/csjs/pages/parts/dialog_parts/search_parts/cstmr_base_search_dialog_d/cstmr_base_search_dialog_d.js"></script>
+<script type="text/javascript" src="ssfa/csjs/pages/parts/dialog_parts/input_parts/cd_input_dialog_d/cd_input_dialog_d.js"></script>
+<script type="text/javascript" src="ssfa/csjs/pages/parts/dialog_parts/search_parts/client_user_search_dialog_d/client_user_search_dialog_d.js"></script>
+<script type="text/javascript" src="rsfa/csjs/pages/parts/dialog_parts/search_parts/campaign_search_dialog_d/campaign_search_dialog_d.js"></script>
+<!-- サジェスト -->
+<script type="text/javascript" src="rsfa/csjs/pages/parts/dialog_parts/search_parts/suggest_dept_list/suggest_dept_list.js"></script>
+<script type="text/javascript" src="rsfa/csjs/pages/parts/dialog_parts/search_parts/suggest_user_list/suggest_user_list.js"></script>
+<script type="text/javascript" src="rsfa/csjs/pages/parts/dialog_parts/search_parts/suggest_cstmr_list/suggest_cstmr_list.js"></script>
+<script type="text/javascript" src="rsfa/csjs/pages/parts/dialog_parts/search_parts/suggest_cstmr_base_list/suggest_cstmr_base_list.js"></script>
+<script type="text/javascript" src="rsfa/csjs/pages/parts/dialog_parts/search_parts/suggest_item_list/suggest_item_list.js"></script>
+<script type="text/javascript" src="rsfa/csjs/pages/parts/dialog_parts/search_parts/suggest_inds_proc_fac_list/suggest_inds_proc_fac_list.js"></script>
+<script type="text/javascript" src="rsfa/csjs/pages/parts/dialog_parts/search_parts/suggest_supp_type_list/suggest_supp_type_list.js"></script>
+<IMART type="include" page="rsfa/pages/parts/dialog_parts/search_parts/suggest_dept_list/suggest_dept_list" dispId="ssfaMtrSrchDiag" ></IMART>
+<IMART type="include" page="rsfa/pages/parts/dialog_parts/search_parts/suggest_user_list/suggest_user_list" dispId="ssfaMtrSrchDiag" ></IMART>
+<IMART type="include" page="rsfa/pages/parts/dialog_parts/search_parts/suggest_cstmr_list/suggest_cstmr_list" dispId="ssfaMtrSrchDiag" ></IMART>
+<IMART type="include" page="rsfa/pages/parts/dialog_parts/search_parts/suggest_cstmr_base_list/suggest_cstmr_base_list" dispId="ssfaMtrSrchDiag" ></IMART>
+<IMART type="include" page="rsfa/pages/parts/dialog_parts/search_parts/suggest_item_list/suggest_item_list" dispId="ssfaMtrSrchDiag" ></IMART>
+<IMART type="include" page="rsfa/pages/parts/dialog_parts/search_parts/suggest_inds_proc_fac_list/suggest_inds_proc_fac_list" dispId="ssfaMtrSrchDiag" ></IMART>
+<IMART type="include" page="rsfa/pages/parts/dialog_parts/search_parts/suggest_supp_type_list/suggest_supp_type_list" dispId="ssfaMtrSrchDiag" ></IMART>
+<form id="ssfaMtrSrchDiag_form" name="ssfaMtrSrchDiag_form" class="scmn-form--search" onsubmit="return false;">
+	<!-- 検索部 -->
+	<div class="ssfa-content ssfa-item-margin--bottom" style="width:100%;">
+		<div class="ssfa-content-block">
+			<ul class="ssfa-content-block__title--simple">
+				<li><imart type="message" id="CAP.Z.RSFA.MATTER_SEARCH.SEARCH_COND" /></li>
+			</ul>
+			<div class="ssfa-content-block__item-area ssfa-content-block__item-area_rix" id="ssfa_matter_search_cond">
+				<div class="ssfa-content-block__item-area">
+
+                    <!-- 絞り込み -->
+                    <div class="ssfa-content-block__item-area ssfa-content-block__item-area_rix" id="ssfa_matter_search_cond">
+                    	<div class="ssfa-flex" >
+                                                
+			             <!-- 担当 -->
+                         <div class="ssfa-item-area--col ssfa-item-area--col_rix ssfa-item-value" style="display:flex;">
+                    		<fieldset style="margin-right:4em;">
+                                <legend class="ssfa-item-label"><imart type="message" id="CAP.Z.RSFA.MATTER_LIST.OWNER"/></legend>
+                                <imart type="imuiCheckbox" id="ssfaMtrSrchDiag_own_dept_flag"  name="ssfaMtrSrchDiag_own_dept_flag" label=""  />
+                                <imart type="imuiCheckbox" id="ssfaMtrSrchDiag_self_charge_flag" name="ssfaMtrSrchDiag_self_charge_flag" label="" />
+                            </fieldset>
+                        </div>
+	                                
+	                                <!-- 担当部署 -->
+                        			<div class="ssfa-item-area--col ssfa-item-area--col_rix" style="flex:1; padding-top:0.6rem;">
+                            			<label class="ssfa-item-label"><imart type="message" id="CAP.Z.RSFA.MATTER_LIST.DEPT"/>
+                                			<a id="ssfaMtrSrchDiag_owner_dept_search" href="javascript:void(0);" onclick="return false;" class="ssfa-img-button__item-area ssfa-img-path-common__search"></a>
+                               				<a id="ssfaMtrSrchDiag_owner_dept_clear" href="javascript:void(0);" onclick="return false;" class="ssfa-img-button__item-area ssfa-img-path-common__times"></a>
+                            			</label>
+                            			<div class="ssfa-item-value" style="flex:1;display: table;" >
+                                			<imart type="imuiTextbox" id="ssfaMtrSrchDiag_owner_dept_code" name="ssfaMtrSrchDiag_owner_dept_code" style="display:table-cell; width: 22%;" placeholder="%CAP.Z.RSFA.SUGGEST.PLACEHOLDER.CD" onkeydown="ssfaMtrSrchDiag_suggestDept(event,'1')"/>
+                                			<imart type="imuiTextbox" id="ssfaMtrSrchDiag_owner_dept_name" name="ssfaMtrSrchDiag_owner_dept_name" style="display:table-cell; width: 78%;" placeholder="%CAP.Z.RSFA.SUGGEST.PLACEHOLDER.NAME" onkeydown="ssfaMtrSrchDiag_suggestDept(event,'2')"/>
+                                			<input type="hidden" id="ssfaMtrSrchDiag_owner_comp_cd" name="ssfaMtrSrchDiag_owner_comp_cd"/>
+                                			<input type="hidden" id="ssfaMtrSrchDiag_owner_dept_set_cd" name="ssfaMtrSrchDiag_owner_dept_set_cd"/>
+                            			</div>
+                        			</div>
+                        			<!-- 主担当者 -->
+									<div class="ssfa-item-area--col ssfa-item-area--col_rix" style="flex:1; padding-top:0.6rem;">
+                            			<label class="ssfa-item-label"  style="margin-left:-1em;"><imart type="message" id="CAP.Z.RSFA.MATTER_LIST.MAIN_USER"/>
+                                			<a id="ssfaMtrSrchDiag_im_main_owner_user_name_search" href="javascript:void(0);" onclick="return false;" class="ssfa-img-button__item-area ssfa-img-path-common__search"></a>
+                                			<a id="ssfaMtrSrchDiag_im_main_owner_user_name_clear" href="javascript:void(0);" onclick="return false;" class="ssfa-img-button__item-area ssfa-img-path-common__times"></a>
+                            			</label>
+                            			<div class="ssfa-item-value" style="flex:1;display: table;" >
+                                			<imart type="imuiTextbox" id="ssfaMtrSrchDiag_im_main_owner_user_cd" name="ssfaMtrSrchDiag_im_main_owner_user_cd" style="display:table-cell; width: 22%;" placeholder="%CAP.Z.RSFA.SUGGEST.PLACEHOLDER.CD" onkeydown="ssfaMtrSrchDiag_suggestMainOwnerUser(event,'1')"/>
+                                			<imart type="imuiTextbox" id="ssfaMtrSrchDiag_im_main_owner_user_name" name="ssfaMtrSrchDiag_im_main_owner_user_name" style="display:table-cell; width: 78%;" placeholder="%CAP.Z.RSFA.SUGGEST.PLACEHOLDER.NAME" onkeydown="ssfaMtrSrchDiag_suggestMainOwnerUser(event,'2')"/>
+                            			</div>
+                        			</div>
+                        			<!-- 主担当者グループ -->
+                        <div class="ssfa-item-area--col ssfa-item-area--col_rix" style="flex:1; padding-top:0.6rem;">
+                            <label class="ssfa-item-label"><imart type="message" id="CAP.Z.RSFA.MATTER_LIST.MAIN_OWNER_USER_GROUP"/>
+                                <a id="ssfaMtrSrchDiag_im_main_owner_user_group_search" href="javascript:void(0);" onclick="return false;" class="ssfa-img-button__item-area ssfa-img-path-common__search"></a>
+                                <a id="ssfaMtrSrchDiag_im_main_owner_user_group_clear" href="javascript:void(0);" onclick="return false;" class="ssfa-img-button__item-area ssfa-img-path-common__times"></a>
+                            </label>
+                            <div class="ssfa-item-value" style="flex:1;display: table;" >
+                                <imart type="imuiTextbox" id="ssfaMtrSrchDiag_im_main_owner_user_group_name" name="ssfaMtrSrchDiag_im_main_owner_user_group_name"/>
+                                <input type="hidden" id="ssfaMtrSrchDiag_im_main_owner_user_group_type" name="ssfaMtrSrchDiag_im_main_owner_user_group_type"/>
+                                <input type="hidden" id="ssfaMtrSrchDiag_im_main_owner_user_public_group_set_cd" name="ssfaMtrSrchDiag_im_main_owner_user_public_group_set_cd"/>
+                                <input type="hidden" id="ssfaMtrSrchDiag_im_main_owner_user_group_code" name="ssfaMtrSrchDiag_im_main_owner_user_group_code"/>
+                            </div>
+                        </div>
+                        <!-- 作成者 -->
+                        <div class="ssfa-item-area--col ssfa-item-area--col_rix" style="flex:1; padding-top:0.6rem;">
+                            <label class="ssfa-item-label"><imart type="message" id="CAP.Z.RSFA.MATTER_LIST.CREATE_USER"/>
+                                <a id="ssfaMtrSrchDiag_create_user_search" href="javascript:void(0);" onclick="return false;" class="ssfa-img-button__item-area ssfa-img-path-common__search"></a>
+                                <a id="ssfaMtrSrchDiag_create_user_clear" href="javascript:void(0);" onclick="return false;" class="ssfa-img-button__item-area ssfa-img-path-common__times"></a>
+                            </label>
+                            <div class="ssfa-item-value" style="flex:1; display: table;" >
+                                <imart type="imuiTextbox" id="ssfaMtrSrchDiag_create_user_code" name="ssfaMtrSrchDiag_create_user_code" style="display:table-cell; width: 22%;" placeholder="%CAP.Z.RSFA.SUGGEST.PLACEHOLDER.CD" onkeydown="ssfaMtrSrchDiag_suggestCreateUser(event,'1')"/>
+                                <imart type="imuiTextbox" id="ssfaMtrSrchDiag_create_user_name" name="ssfaMtrSrchDiag_create_user_name" style="display:table-cell; width: 78%;" placeholder="%CAP.Z.RSFA.SUGGEST.PLACEHOLDER.NAME" onkeydown="ssfaMtrSrchDiag_suggestCreateUser(event,'2')"/>
+                            </div>
+                        </div>
+                        <!-- 作成者グループ -->
+                        <div class="ssfa-item-area--col ssfa-item-area--col_rix" style="flex:1; padding-top:0.6rem;">
+                            <label class="ssfa-item-label"><imart type="message" id="CAP.Z.RSFA.MATTER_LIST.CREATE_USER_GROUP"/>
+                                <a id="ssfaMtrSrchDiag_create_user_group_search" href="javascript:void(0);" onclick="return false;" class="ssfa-img-button__item-area ssfa-img-path-common__search"></a>
+                                <a id="ssfaMtrSrchDiag_create_user_group_clear" href="javascript:void(0);" onclick="return false;" class="ssfa-img-button__item-area ssfa-img-path-common__times"></a>
+                            </label>
+                            <div class="ssfa-item-value" style="flex:1;display: table;" >
+                                <imart type="imuiTextbox" id="ssfaMtrSrchDiag_create_user_group_name" name="ssfaMtrSrchDiag_create_user_group_name" />
+                                <input type="hidden" id="ssfaMtrSrchDiag_create_user_group_type" name="ssfaMtrSrchDiag_create_user_group_type"/>
+                                <input type="hidden" id="ssfaMtrSrchDiag_create_user_public_group_set_cd" name="ssfaMtrSrchDiag_create_user_public_group_set_cd"/>
+                                <input type="hidden" id="ssfaMtrSrchDiag_create_user_group_code" name="ssfaMtrSrchDiag_create_user_group_code"/>
+                            </div>
+                        </div>
+                        			
+                            </div>
+                        </div>
+
+                    
+                    <div class="ssfa-flex">
+                    <!-- 売上顧客 -->
+                        <!-- 得意先 -->
+                        <div class="ssfa-item-area--col ssfa-item-area--col_rix" style="flex:1;">
+                        <label><imart type="message" id="CAP.Z.RSFA.MATTER_LIST.SALES_CLIENT" /></label>
+                            <label class="ssfa-item-label"><imart type="message" id="CAP.Z.RSFA.ACTIVITY_LIST.ACTIVITY_CSTMR"/>
+                                <a id="ssfaMtrSrchDiag_sales_cstmr_corp_search" href="javascript:void(0);" onclick="return false;" class="ssfa-img-button__item-area ssfa-img-path-common__search"></a>
+                                <a id="ssfaMtrSrchDiag_sales_cstmr_corp_clear" href="javascript:void(0);" onclick="return false;" class="ssfa-img-button__item-area ssfa-img-path-common__times"></a>
+                            </label>
+                         	<div class="ssfa-item-value" style="flex:1;display: table;" >
+                                <imart type="imuiTextbox" id="ssfaMtrSrchDiag_sales_cstmr_corp_cd" name="ssfaMtrSrchDiag_sales_cstmr_corp_cd" style="display:table-cell; width: 22%;" placeholder="%CAP.Z.RSFA.SUGGEST.PLACEHOLDER.CD" onkeydown="ssfaMtrSrchDiag_suggestSalesCstmr(event,'3')"/>
+                                <imart type="imuiTextbox" id="ssfaMtrSrchDiag_sales_cstmr_corp_name" name="ssfaMtrSrchDiag_sales_cstmr_corp_name" style="display:table-cell; width: 78%;" placeholder="%CAP.Z.RSFA.SUGGEST.PLACEHOLDER.NAME" onkeydown="ssfaMtrSrchDiag_suggestSalesCstmr(event,'4')"/>
+							</div>
+                        </div>
+                       	<!-- 得意先拠点 -->
+                        <div class="ssfa-item-area--col ssfa-item-area--col_rix" style="flex:1;">
+                        <label class="ssfa-item-label">&ensp;</label>
+                            <label class="ssfa-item-label"><imart type="message" id="CAP.Z.RSFA.ACTIVITY_LIST.ACTIVITY_CSTMR_BASE"/>
+                                <a id="ssfaMtrSrchDiag_sales_cstmr_base_search" href="javascript:void(0);" onclick="return false;" class="ssfa-img-button__item-area ssfa-img-path-common__search"></a>
+                                <a id="ssfaMtrSrchDiag_sales_cstmr_base_clear" href="javascript:void(0);" onclick="return false;" class="ssfa-img-button__item-area ssfa-img-path-common__times"></a>
+                            </label>
+                            <div class="ssfa-item-value" style="flex:1; display: table;" >
+                                <imart type="imuiTextbox" id="ssfaMtrSrchDiag_sales_cstmr_base_cd" name="ssfaMtrSrchDiag_sales_cstmr_base_cd" style="display:table-cell; width: 22%;" placeholder="%CAP.Z.RSFA.SUGGEST.PLACEHOLDER.CD" onkeydown="ssfaMtrSrchDiag_suggestSalesCstmrBase(event,'3')"/>
+                                <imart type="imuiTextbox" id="ssfaMtrSrchDiag_sales_cstmr_base_name" name="ssfaMtrSrchDiag_sales_cstmr_base_name" style="display:table-cell; width: 78%;" placeholder="%CAP.Z.RSFA.SUGGEST.PLACEHOLDER.NAME" onkeydown="ssfaMtrSrchDiag_suggestSalesCstmrBase(event,'4')"/>
+                            </div>
+                        </div>
+                        <!-- 得意先部署(内部) -->
+                        <div class="ssfa-item-area--col ssfa-item-area--col_rix" style="flex:1;">
+                        <label class="ssfa-item-label">&ensp;</label>
+                            <label class="ssfa-item-label"><imart type="message" id="CAP.Z.RSFA.MATTER_LIST.CSTMR_DEPT_INTERNAL"/>
+                                <a id="ssfaMtrSrchDiag_sales_cstmr_dept_internal_search" href="javascript:void(0);" onclick="return false;" class="ssfa-img-button__item-area ssfa-img-path-common__search"></a>
+                                <a id="ssfaMtrSrchDiag_sales_cstmr_dept_internal_clear" href="javascript:void(0);" onclick="return false;" class="ssfa-img-button__item-area ssfa-img-path-common__times"></a>
+                            </label>
+                            <div class="ssfa-item-value" style="flex:1; display: table;">
+                                <imart type="imuiTextbox" id="ssfaMtrSrchDiag_sales_cstmr_dept_internal_cd" name="ssfaMtrSrchDiag_sales_cstmr_dept_internal_cd" disabled="disabled" style="display:table-cell; width: 22%;" placeholder="%CAP.Z.RSFA.SUGGEST.PLACEHOLDER.CD"/>
+                                <imart type="imuiTextbox" id="ssfaMtrSrchDiag_sales_cstmr_dept_internal_name" name="ssfaMtrSrchDiag_sales_cstmr_dept_internal_name" disabled="disabled" style="display:table-cell; width: 78%;" placeholder="%CAP.Z.RSFA.SUGGEST.PLACEHOLDER.NAME"/>
+                                <input type="hidden" id="ssfaMtrSrchDiag_sales_cstmr_dept_internal_comp_cd" name="ssfaMtrSrchDiag_sales_cstmr_dept_internal_comp_cd"/>
+                                <input type="hidden" id="ssfaMtrSrchDiag_sales_cstmr_dept_internal_dept_set_cd" name="ssfaMtrSrchDiag_sales_cstmr_dept_internal_dept_set_cd"/>
+                            </div>
+                        </div>
+                        <!-- 得意先部署(通常) -->
+                        <div class="ssfa-item-area--col ssfa-item-area--col_rix" style="flex:1;">
+                        <label class="ssfa-item-label">&ensp;</label>
+                            <label class="ssfa-item-label"><imart type="message" id="CAP.Z.RSFA.MATTER_LIST.CSTMR_DEPT_NORMAL"/>
+                            </label>
+                            <div class="ssfa-item-value" style="flex:1;">
+                                <imart type="imuiTextbox" id="ssfaMtrSrchDiag_sales_cstmr_dept_normal_name" name="ssfaMtrSrchDiag_sales_cstmr_dept_normal_name"/>
+                            </div>
+                        </div>
+                        <!-- 得意先担当者(内部)-->
+                        <div class="ssfa-item-area--col ssfa-item-area--col_rix" style="flex:1;">
+                        <label class="ssfa-item-label">&ensp;</label>
+                            <label class="ssfa-item-label"><imart type="message" id="CAP.Z.RSFA.MATTER_LIST.CSTMR_PERSON_INTERNAL"/>
+                                <a id="ssfaMtrSrchDiag_sales_cstmr_person_internal_search" href="javascript:void(0);" onclick="return false;" class="ssfa-img-button__item-area ssfa-img-path-common__search"></a>
+                                <a id="ssfaMtrSrchDiag_sales_cstmr_person_internal_clear" href="javascript:void(0);" onclick="return false;" class="ssfa-img-button__item-area ssfa-img-path-common__times"></a>
+                            </label>
+                            <div class="ssfa-item-value" style="flex:1; display: table;">
+                                <imart type="imuiTextbox" id="ssfaMtrSrchDiag_sales_cstmr_person_internal_cd" name="ssfaMtrSrchDiag_sales_cstmr_person_internal_id" disabled="disabled" style="display:table-cell; width: 22%;" placeholder="%CAP.Z.RSFA.SUGGEST.PLACEHOLDER.CD"/>
+                                <imart type="imuiTextbox" id="ssfaMtrSrchDiag_sales_cstmr_person_internal_name" name="ssfaMtrSrchDiag_sales_cstmr_person_internal_name" disabled="disabled" style="display:table-cell; width: 78%;" placeholder="%CAP.Z.RSFA.SUGGEST.PLACEHOLDER.NAME"/>
+                            </div>
+                        </div>
+                        <!-- 得意先担当者(通常)-->
+                        <div class="ssfa-item-area--col ssfa-item-area--col_rix" style="flex:1;">
+                        <label class="ssfa-item-label">&ensp;</label>
+                            <label class="ssfa-item-label"><imart type="message" id="CAP.Z.RSFA.MATTER_LIST.CSTMR_PERSON_NORMAL"/>
+                                <a id="ssfaMtrSrchDiag_sales_cstmr_person_normal_search" href="javascript:void(0);" onclick="return false;" class="ssfa-img-button__item-area ssfa-img-path-common__search"></a>
+                                <a id="ssfaMtrSrchDiag_sales_cstmr_person_normal_clear" href="javascript:void(0);" onclick="return false;" class="ssfa-img-button__item-area ssfa-img-path-common__times"></a>
+                            </label>
+                            <div class="ssfa-item-value" style="flex:1;">
+                                <imart type="imuiTextbox" id="ssfaMtrSrchDiag_sales_cstmr_person_normal_name" name="ssfaMtrSrchDiag_sales_cstmr_person_normal_name" />
+                                <input type="hidden" id="ssfaMtrSrchDiag_sales_cstmr_person_normal_sys_person_id" name="ssfaMtrSrchDiag_sales_cstmr_person_normal_sys_person_id"/>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="ssfa-flex">
+                        <!-- ターゲット顧客タイトル -->
+                        <!-- 得意先 -->
+                        <div class="ssfa-item-area--col ssfa-item-area--col_rix" style="flex:1;">
+                        <label><imart type="message" id="CAP.Z.RSFA.MATTER_LIST.TARGET_CLIENT" /></label>
+                            <label class="ssfa-item-label"><imart type="message" id="CAP.Z.RSFA.ACTIVITY_LIST.ACTIVITY_CSTMR"/>
+                                <a id="ssfaMtrSrchDiag_target_cstmr_corp_search" href="javascript:void(0);" onclick="return false;" class="ssfa-img-button__item-area ssfa-img-path-common__search"></a>
+                                <a id="ssfaMtrSrchDiag_target_cstmr_corp_clear" href="javascript:void(0);" onclick="return false;" class="ssfa-img-button__item-area ssfa-img-path-common__times"></a>
+                            </label>
+                            <div class="ssfa-item-value" style="flex:1;display: table;" >
+                                <imart type="imuiTextbox" id="ssfaMtrSrchDiag_target_cstmr_corp_cd" name="ssfaMtrSrchDiag_target_cstmr_corp_cd" style="display:table-cell; width: 22%;" placeholder="%CAP.Z.RSFA.SUGGEST.PLACEHOLDER.CD" onkeydown="ssfaMtrSrchDiag_suggestTargetCstmr(event,'3')"/>
+                                <imart type="imuiTextbox" id="ssfaMtrSrchDiag_target_cstmr_corp_name" name="ssfaMtrSrchDiag_target_cstmr_corp_name" style="display:table-cell; width: 78%;" placeholder="%CAP.Z.RSFA.SUGGEST.PLACEHOLDER.NAME" onkeydown="ssfaMtrSrchDiag_suggestTargetCstmr(event,'4')"/>
+                            </div>
+                        </div>
+                        <!-- 得意先拠点 -->
+                        <div class="ssfa-item-area--col ssfa-item-area--col_rix" style="flex:1;">
+                        <label class="ssfa-item-label">&ensp;</label>
+                            <label class="ssfa-item-label"><imart type="message" id="CAP.Z.RSFA.ACTIVITY_LIST.ACTIVITY_CSTMR_BASE"/>
+                                <a id="ssfaMtrSrchDiag_target_cstmr_base_search" href="javascript:void(0);" onclick="return false;" class="ssfa-img-button__item-area ssfa-img-path-common__search"></a>
+                                <a id="ssfaMtrSrchDiag_target_cstmr_base_clear" href="javascript:void(0);" onclick="return false;" class="ssfa-img-button__item-area ssfa-img-path-common__times"></a>
+                            </label>
+                            <div class="ssfa-item-value" style="flex:1; display: table;" >
+                                <imart type="imuiTextbox" id="ssfaMtrSrchDiag_target_cstmr_base_cd" name="ssfaMtrSrchDiag_target_cstmr_base_cd" style="display:table-cell; width: 22%;" placeholder="%CAP.Z.RSFA.SUGGEST.PLACEHOLDER.CD" onkeydown="ssfaMtrSrchDiag_suggestTargetCstmrBase(event,'3')"/>
+                                <imart type="imuiTextbox" id="ssfaMtrSrchDiag_target_cstmr_base_name" name="ssfaMtrSrchDiag_target_cstmr_base_name" style="display:table-cell; width: 78%;" placeholder="%CAP.Z.RSFA.SUGGEST.PLACEHOLDER.NAME" onkeydown="ssfaMtrSrchDiag_suggestTargetCstmrBase(event,'4')"/>
+                            </div>
+                        </div>
+                        <!-- 得意先部署(内部) -->
+                        <div class="ssfa-item-area--col ssfa-item-area--col_rix" style="flex:1;">
+                        <label class="ssfa-item-label">&ensp;</label>
+                            <label class="ssfa-item-label"><imart type="message" id="CAP.Z.RSFA.MATTER_LIST.CSTMR_DEPT_INTERNAL"/>
+                                <a id="ssfaMtrSrchDiag_target_cstmr_dept_internal_search" href="javascript:void(0);" onclick="return false;" class="ssfa-img-button__item-area ssfa-img-path-common__search"></a>
+                                <a id="ssfaMtrSrchDiag_target_cstmr_dept_internal_clear" href="javascript:void(0);" onclick="return false;" class="ssfa-img-button__item-area ssfa-img-path-common__times"></a>
+                            </label>
+                            <div class="ssfa-item-value" style="flex:1; display: table;" >
+                                <imart type="imuiTextbox" id="ssfaMtrSrchDiag_target_cstmr_dept_internal_cd" name="ssfaMtrSrchDiag_target_cstmr_dept_internal_cd" disabled="disabled" style="display:table-cell; width: 22%;" placeholder="%CAP.Z.RSFA.SUGGEST.PLACEHOLDER.CD"/>
+                                <imart type="imuiTextbox" id="ssfaMtrSrchDiag_target_cstmr_dept_internal_name" name="ssfaMtrSrchDiag_target_cstmr_dept_internal_name"disabled="disabled" style="display:table-cell; width: 78%;" placeholder="%CAP.Z.RSFA.SUGGEST.PLACEHOLDER.NAME"/>
+                                <input type="hidden" id="ssfaMtrSrchDiag_target_cstmr_dept_internal_comp_cd" name="ssfaMtrSrchDiag_sales_cstmr_dept_internal_comp_cd"/>
+                                <input type="hidden" id="ssfaMtrSrchDiag_target_cstmr_dept_internal_dept_set_cd" name="ssfaMtrSrchDiag_sales_cstmr_dept_internal_dept_set_cd"/>
+                            </div>
+                        </div>
+                        <!-- 得意先部署(通常) -->
+                        <div class="ssfa-item-area--col ssfa-item-area--col_rix" style="flex:1;">
+                        <label class="ssfa-item-label">&ensp;</label>
+                            <label class="ssfa-item-label"><imart type="message" id="CAP.Z.RSFA.MATTER_LIST.CSTMR_DEPT_NORMAL"/>
+                            </label>
+                            <div class="ssfa-item-value" style="flex:1;" >
+                                <imart type="imuiTextbox" id="ssfaMtrSrchDiag_target_cstmr_dept_normal_name" name="ssfaMtrSrchDiag_target_cstmr_dept_normal_name"/>
+                            </div>
+                        </div>
+                        <!-- 得意先担当者(内部)-->
+                        <div class="ssfa-item-area--col ssfa-item-area--col_rix" style="flex:1;">
+                        <label class="ssfa-item-label">&ensp;</label>
+                            <label class="ssfa-item-label"><imart type="message" id="CAP.Z.RSFA.MATTER_LIST.CSTMR_PERSON_INTERNAL"/>
+                                <a id="ssfaMtrSrchDiag_target_cstmr_person_internal_search" href="javascript:void(0);" onclick="return false;" class="ssfa-img-button__item-area ssfa-img-path-common__search"></a>
+                                <a id="ssfaMtrSrchDiag_target_cstmr_person_internal_clear" href="javascript:void(0);" onclick="return false;" class="ssfa-img-button__item-area ssfa-img-path-common__times"></a>
+                            </label>
+                            <div class="ssfa-item-value" style="flex:1; display: table;">
+                                <imart type="imuiTextbox" id="ssfaMtrSrchDiag_target_cstmr_person_internal_cd" name="ssfaMtrSrchDiag_target_cstmr_person_internal_cd" disabled="disabled" style="display:table-cell; width: 22%;" placeholder="%CAP.Z.RSFA.SUGGEST.PLACEHOLDER.CD"/>
+                                <imart type="imuiTextbox" id="ssfaMtrSrchDiag_target_cstmr_person_internal_name" name="ssfaMtrSrchDiag_target_cstmr_person_internal_name" disabled="disabled" style="display:table-cell; width: 78%;" placeholder="%CAP.Z.RSFA.SUGGEST.PLACEHOLDER.NAME"/>
+                            </div>
+                        </div>
+                        <!-- 得意先担当者(通常)-->
+                        <div class="ssfa-item-area--col ssfa-item-area--col_rix" style="flex:1;">
+                        <label class="ssfa-item-label">&ensp;</label>
+                            <label class="ssfa-item-label"><imart type="message" id="CAP.Z.RSFA.MATTER_LIST.CSTMR_PERSON_NORMAL"/>
+                                <a id="ssfaMtrSrchDiag_target_cstmr_person_normal_search" href="javascript:void(0);" onclick="return false;" class="ssfa-img-button__item-area ssfa-img-path-common__search"></a>
+                                <a id="ssfaMtrSrchDiag_target_cstmr_person_normal_clear" href="javascript:void(0);" onclick="return false;" class="ssfa-img-button__item-area ssfa-img-path-common__times"></a>
+                            </label>
+                            <div class="ssfa-item-value" style="flex:1;">
+                                <imart type="imuiTextbox" id="ssfaMtrSrchDiag_target_cstmr_person_normal_name" name="ssfaMtrSrchDiag_target_cstmr_person_normal_name" />
+                                <input type="hidden" id="ssfaMtrSrchDiag_target_cstmr_person_normal_sys_person_id" name="ssfaMtrSrchDiag_target_cstmr_person_normal_sys_person_id"/>
+                            </div>
+                        </div>
+                    </div>
+                    
+
+                    <div class="ssfa-flex" style="padding-top: 1rem;">
+                        <!-- フラグ -->
+                          <div class="ssfa-item-area--col ssfa-item-area--col_rix ssfa-item-value" style="display:flex; flex:1;">
+                    		<fieldset style="margin-right:1em;">
+                                <legend class="ssfa-item-label"><imart type="message" id="CAP.Z.RSFA.MATTER_LIST.FLAG"/></legend>
+                                <!-- 重要 -->
+                                <imart type="imuiCheckbox" id="ssfaMtrSrchDiag_important_flag" name="ssfaMtrSrchDiag_important_flag" label="" />
+                                <!-- 工事 -->
+                                <imart type="imuiCheckbox" id="ssfaMtrSrchDiag_construction_flag" name="ssfaMtrSrchDiag_construction_flag" label="" />
+                                <!-- 非公開 -->
+                                <imart type="imuiCheckbox" id="ssfaMtrSrchDiag_hidden_flag" name="ssfaMtrSrchDiag_hidden_flag" label="" />
+                                <!-- 内部取引区分 -->
+                                <imart type="imuiCheckbox" id="ssfaMtrSrchDiag_internal_biz_flag" name="ssfaMtrSrchDiag_internal_biz_flag" label="" />
+                                <!-- 注力 -->
+                                <imart type="imuiCheckbox" id="ssfaMtrSrchDiag_focus_flag" name="ssfaMtrSrchDiag_focus_flag" label="" />
+                                <!-- 仮状態 -->
+                                <imart type="imuiCheckbox" id="ssfaMtrSrchDiag_provisional_status" name="ssfaMtrSrchDiag_provisional_status" label="" />
+                            </fieldset>
+                        </div>
+                    	 
+                    	 <!-- NK区分 -->
+                    	 <div class="ssfa-item-area--col ssfa-item-area--col_rix ssfa-item-value" style="display:flex; flex:1;">
+                    		<fieldset style="margin-right:1em;">
+                                <legend class="ssfa-item-label"><imart type="message" id="CAP.Z.RSFA.MATTER_LIST.NK_TYPE"/></legend>
+                                <!-- 流れ --><!-- 基礎 --><!-- 個別 -->
+                                <imart type="imuiCheckbox" id="ssfaMtrSrchDiag_nk_type" name="ssfaMtrSrchDiag_nk_type" label="" />
+                            </fieldset>
+                        </div>
+                    </div>
+
+					<div style="display:flex;">
+					    
+					     <!-- 案件番号 -->
+						<div class="ssfa-item-area--col" style="flex: 1;">
+							<label class="ssfa-item-label"><imart type="message" id="CAP.Z.RSFA.MATTER_SEARCH.MATTER_NO" /></label>
+							<div class="ssfa-item-value">
+								<imart type="imuiTextbox" id="ssfaMtrSrchDiag_matter_no" name="ssfaMtrSrchDiag_matter_no" />
+							</div>
+						</div>
+						
+						<!-- 案件名 -->
+						<div class="ssfa-item-area--col" style="flex: 2;">
+							<label class="ssfa-item-label"><imart type="message" id="CAP.Z.RSFA.MATTER_SEARCH.MATTER_NAME" /></label>
+							<div class="ssfa-item-value">
+								<imart type="imuiTextbox" id="ssfaMtrSrchDiag_matter_name" name="ssfaMtrSrchDiag_matter_name" />
+							</div>
+						</div>
+						
+						<!-- 案件詳細番号 -->
+					    <!-- 20230116 RIX対応 start -->
+						<div class="ssfa-item-area--col ssfa-item-area--col_rix" style="flex:1;">
+						<!-- 20230116 RIX対応 end -->
+							<label class="ssfa-item-label"><imart type="message" id="CAP.Z.RSFA.MATTER_LIST.DTL_NO" /></label>
+							<div class="ssfa-item-value">
+								<imart type="imuiTextbox" id="ssfaMtrSrchDiag_matter_dtl_no" name="ssfaMtrSrchDiag_matter_dtl_no" />
+							</div>
+						</div>
+						
+						<!-- 詳細件名 -->
+						<!-- 20230116 RIX対応 start -->
+						<div class="ssfa-item-area--col ssfa-item-area--col_rix" style="flex:2;">
+						<!-- 20230116 RIX対応 end -->
+							<label class="ssfa-item-label"><imart type="message" id="CAP.Z.RSFA.MATTER_LIST.DTL_NAME" /></label>
+							<div class="ssfa-item-value">
+								<imart type="imuiTextbox" id="ssfaMtrSrchDiag_matter_dtl_name" name="ssfaMtrSrchDiag_matter_dtl_name" />
+							</div>
+						</div>
+					</div>
+						
+					
+					<div class="ssfa-flex" style="display:flex;">
+                      	<!-- 受注予定日 -->
+	                	<div class="ssfa-item-area--col" style="flex:1.5;" >
+	                    	
+	                    	<label class="ssfa-item-label"><imart type="message" id="CAP.Z.RSFA.MATTER_SEARCH.RECEIVE_PLAN_DATE"/></label>
+	                    	<div class="ssfa-flex" >
+	                        	<div class="ssfa-item-value"  style="flex:1.5;">
+	                            	<imart type="imuiTextbox" id="ssfaMtrSrchDiag_receive_plan_date_from" name="ssfaMtrSrchDiag_receive_plan_date_from" />
+	                            	<imart type="imuiCalendar" altField="#ssfaMtrSrchDiag_receive_plan_date_from" floatable="true" changeYear="true" changeMonth="true" />
+	                        	</div>
+	                        	<div style="margin-right:1em">～</div>
+	                        	<div class="ssfa-item-value" style="flex:1.5;">
+	                            	<imart type="imuiTextbox" id="ssfaMtrSrchDiag_receive_plan_date_to" name="ssfaMtrSrchDiag_receive_plan_date_to" />
+	                        		<imart type="imuiCalendar" altField="#ssfaMtrSrchDiag_receive_plan_date_to" floatable="true" changeYear="true" changeMonth="true" />
+	                    		</div>
+	                		</div>
+	                		<div name="ssfaMtrSrchDiag_errorArea" class="ssfa-item-value"></div>
+	                	</div>
+                     
+                        <!-- 売上予定日 -->
+                     	<div class="ssfa-item-area--col" style="flex:1.5;" >
+    						
+    						<label class="ssfa-item-label"><imart type="message" id="CAP.Z.RSFA.MATTER_SEARCH.SALES_PLAN_DATE"/></label>
+  							<div class="ssfa-flex">
+   								<div class="ssfa-item-value" style="flex:1.5;" >
+           							<imart type="imuiTextbox" id="ssfaMtrSrchDiag_sales_plan_date_from" name="ssfaMtrSrchDiag_sales_plan_date_from" />
+           							<imart type="imuiCalendar" altField="#ssfaMtrSrchDiag_sales_plan_date_from" floatable="true" changeYear="true" changeMonth="true" />
+   								</div>
+   								<div style="margin-right:1em">～</div>
+        						<div class="ssfa-item-value" style="flex:1.5;" >
+            						<imart type="imuiTextbox" id="ssfaMtrSrchDiag_sales_plan_date_to" name="ssfaMtrSrchDiag_sales_plan_date_to" />
+           							<imart type="imuiCalendar" altField="#ssfaMtrSrchDiag_sales_plan_date_to" floatable="true" changeYear="true" changeMonth="true" />
+        						</div>
+    						</div>
+    						<div name="ssfaMtrSrchDiag_errorArea" class="ssfa-item-value"></div>
+						</div>  
+						
+						<!-- 受注予定金額-->
+                        <div class="ssfa-item-area--col ssfa-item-area--col_rix" style="flex:1;">
+                            <label class="ssfa-item-label"><imart type="message" id="CAP.Z.RSFA.MATTER_LIST.PLAN_OPRICE"/></label>
+                            <div class="ssfa-item-value ssfa-flex" style="flex:1;" >
+                                <imart type="imuiTextbox" id="ssfaMtrSrchDiag_sprice" name="ssfaMtrSrchDiag_sprice" class="ssfa-item-input--money"/>
+                                <div style="white-space: nowrap; padding-left: 0.5rem; padding-top: 0.5rem;"><imart type="message" id="CAP.Z.RSFA.MATTER_LIST.YEN_MORE_THAN"/></div>
+                            </div>
+                        </div>
+                        
+                        <!-- キャンペーン名 -->
+                        <div class="ssfa-item-area--col ssfa-item-area--col_rix" style="flex:1;">
+                            <label class="ssfa-item-label"><imart type="message" id="CAP.Z.RSFA.MATTER_LIST.CAMPAIGN_NAME"/>
+                                <a id="ssfaMtrSrchDiag_campaign_search" href="javascript:void(0);" onclick="return false;" class="ssfa-img-button__item-area ssfa-img-path-common__search"></a>
+                                <a id="ssfaMtrSrchDiag_campaign_clear" href="javascript:void(0);" onclick="return false;" class="ssfa-img-button__item-area ssfa-img-path-common__times"></a>
+                            </label>
+                            <div class="ssfa-item-value" style="flex:1;">
+                                <imart type="imuiTextbox" id="ssfaMtrSrchDiag_campaign_name" name="ssfaMtrSrchDiag_campaign_name"/>
+                                <imart type="hidden" id="ssfaMtrSrchDiag_imfr_campaign_id" name="ssfaMtrSrchDiag_imfr_campaign_id"/>
+                            </div>
+                        </div>
+                        <!-- 見積番号 -->
+                        <div class="ssfa-item-area--col ssfa-item-area--col_rix" style="flex:1;">
+                            <label class="ssfa-item-label"><imart type="message" id="CAP.Z.RSFA.MATTER_LIST.ESTIMATE_NO"/></label>
+                            <div class="ssfa-item-value" style="flex:1;" >
+                                <imart type="imuiTextbox" id="ssfaMtrSrchDiag_estimate_no" name="ssfaMtrSrchDiag_estimate_no"/>
+                            </div>
+                        </div>								                                     
+                    </div>
+                    
+                    <div style="display:flex;">
+                    <!-- 案件状態1 -->
+                        <div class="ssfa-item-area--col" style="flex:2;min-width: 0;">
+                            <imart type="imuiButton" id="ssfaMtrSrchDiag_matter_status1_select" value="%CAP.Z.RSFA.MATTER_LIST.MATTER_STATUS1" class="imui-small-button" />
+                            <div id="ssfaMtrSrchDiag_matter_status1_list">
+                                <div id="ssfaMtrSrchDiag_matter_status_tag" class="ssfa-item__list-tag" ></div>
+                                <input type="hidden" id="ssfaMtrSrchDiag_matter_status1_cd" name="ssfaMtrSrchDiag_matter_status1_cd">
+                            </div>                         
+                        </div> 
+                        
+                     <!-- 案件状態2 -->
+                        <div class="ssfa-item-area--col" style="flex:2;min-width: 0;">
+                            <imart type="imuiButton" id="ssfaMtrSrchDiag_matter_status2_select" value="%CAP.Z.RSFA.MATTER_LIST.MATTER_STATUS2" class="imui-small-button" />
+                            <div id="ssfaMtrSrchDiag_matter_status2_list">
+                                <div id="ssfaMtrSrchDiag_matter_status_tag" class="ssfa-item__list-tag" ></div>
+                                <input type="hidden" id="ssfaMtrSrchDiag_matter_status2_cd" name="ssfaMtrSrchDiag_matter_status2_cd">
+                            </div>                         
+                        </div> 
+                     </div> 
+                        
+						<div style="flex:2;"></div>
+					</div>
+						<!-- 検索・クリアボタン  -->
+						<div class="ssfa-flex" style="align-items:flex-end; margin: 0.5em 1em 0.5em 0em;">
+						<div class="ssfa-list-search-buttons" style="margin-top:10px;margin-left:auto;">
+							<input type="submit" id="ssfaMtrSrchDiag_search" name="ssfaMtrSrchDiag_search" value="<imart type="message" id="CAP.Z.RSFA.MATTER_SEARCH.SEARCH"/>" class="imui-small-button" style="margin-right: 10px;margin-bottom:10px" onclick="ssfaMtrSrchDiag_searchButton();return false;"/>
+							<button type="button" id="ssfaMtrSrchDiag_clear" name="ssfaMtrSrchDiag_clear" class="imui-small-button" onclick="ssfaMtrSrchDiag_clearButton();return false;">
+								<imart type="message" id="CAP.Z.RSFA.MATTER_SEARCH.CLEAR" />
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	
+	<!-- インフォエリア -->
+	<div class="imui-box-information" id="ssfaMtrSrchDiag_screenMessage" style="display:none">
+		<imart type="message" id="MSG.I.RSFA.MATTER_SEARCH.SEARCH.NO_DATA" />
+	</div>
+	<div class="flex" id="ssfaMtrSrchDiag_screenSearch" style="display:none">
+		<div id="container" class="ssfa-content-block" >
+			<div class=" ">
+				<imart type="imuiListTable" name="ssfaMtrSrchDiag_matter_search_list" id="ssfaMtrSrchDiag_matter_search_list" process="csjs" target="ssfaMtrSrchDiag_getData"
+					autoEncode="true" onDblClickRow="ssfaMtrSrchDiag_dbClickRow" onGridComplete="ssfaMtrSrchDiag_onGridComplete" viewRecords="true" multiSelect=$request.multiSelect autoResize="true" autoWidth="true" height="280">
+					<pager rowNum="50" rowList="50,100,200" />
+					<cols>
+						<!-- 担当部署 -->
+   			 			<col name="ssfaMtrSrchDiag_matter_search_list_dept_name" caption="%CAP.Z.RSFA.MATTER_LIST.DEPT" width="85"  align="left"/>
+   			 			<!-- 主担当者 -->
+	        			<col name="ssfaMtrSrchDiag_matter_search_list_im_main_owner_user_name" caption="%CAP.Z.RSFA.MATTER_LIST.MAIN_USER" width="85"  align="left"/>
+	        			<!-- 案件名 -->
+	        			<col name="ssfaMtrSrchDiag_matter_search_list_matter_name" caption="%CAP.Z.RSFA.MATTER_LIST.MATTER_NAME" width="85" align="left"/>
+	       			    <!-- 得意先（売上顧客） -->
+            			<col name="ssfaMtrSrchDiag_matter_search_list_sales_cstmr_corp_name" caption="%CAP.Z.RSFA.MATTER_LIST.CSTMR_SALES_CLIENT" width="150"　align="left"/>
+	       			 	<!-- 得意先（ターゲット顧客） -->
+	        			<col name="ssfaMtrSrchDiag_matter_search_list_target_cstmr_corp_name" caption="%CAP.Z.RSFA.MATTER_LIST.CSTMR_TARGET_CLIENT" width="120"  align="left"/>
+	        			<!-- 詳細件名 -->
+	        			<col name="ssfaMtrSrchDiag_matter_search_list_matter_dtl_name" caption="%CAP.Z.RSFA.MATTER_LIST.DTL_NAME" width="110"  align="left"/>
+	        			<!-- 案件状態１ -->
+	        			<col name="ssfaMtrSrchDiag_matter_search_list_matter_status1_name" caption="%CAP.Z.RSFA.MATTER_LIST.MATTER_STATUS1" width="55"  align="left"/>
+	       				<!-- 案件状２ -->
+	        			<col name="ssfaMtrSrchDiag_matter_search_list_matter_status2_name" caption="%CAP.Z.RSFA.MATTER_LIST.MATTER_STATUS2" width="55"  align="left"/>
+	        			<!-- 確度 -->
+	        			<col name="ssfaMtrSrchDiag_matter_search_list_reliability_type_name" caption="%CAP.Z.RSFA.MATTER_LIST.RELIABILITY" width="40" align="center"/>
+	        			<!-- 点数 -->
+	        			<col name="ssfaMtrSrchDiag_matter_search_list_bant_cond_total" caption="%CAP.Z.RSFA.MATTER_LIST.SCORE" width="40"  align="right" onCellAttr="ssfaGetGridNumericClass"/>
+	        			<!-- 受注予定日 -->
+	        			<col name="ssfaMtrSrchDiag_matter_search_list_receive_plan_year_month_date" caption="%CAP.Z.RSFA.MATTER_LIST.RECEIVE_PLAN_DATE" width="75" align="right"/>
+	        			<!-- 売上予定日 -->
+	         			<col name="ssfaMtrSrchDiag_matter_search_list_sales_plan_year_month_date" caption="%CAP.Z.RSFA.MATTER_LIST.SALES_PLAN_DATE" width="75" align="right"/>
+	         			<!-- 更新日時 -->
+	        			<col name="ssfaMtrSrchDiag_matter_search_list_record_date" caption="%CAP.Z.RSFA.MATTER_LIST.RECORD_DATE" width="75"  align="left"/>
+	        			<!-- 最終更新者 -->
+	        			<col name="ssfaMtrSrchDiag_matter_search_list_record_user_name" caption="%CAP.Z.RSFA.MATTER_LIST.RECORD_USER" width="75" align="left"/>
+	        			<!-- 案件ID -->
+           				 <col name="ssfaMtrSrchDiag_matter_search_list_matter_id" hidden="true"/>
+           				 <!-- 注力フラグ -->
+           				 <col name="ssfaMtrSrchDiag_matter_search_list_focus_flag" hidden="true"/>
+           				 <!-- 案件番号 -->
+           				 <col name="ssfaMtrSrchDiag_matter_search_list_matter_no" hidden="true"/>
+                        </cols>
+				</imart>
+			</div>
+		</div>
+	</div>
+</form>
